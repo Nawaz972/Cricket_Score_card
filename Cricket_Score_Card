@@ -1,0 +1,73 @@
+#include<stdio.h>
+#define max 50
+struct batsmen
+{
+	char ba_name[20];
+	int ba_age;
+	int runs;
+	float strike_rate;
+};
+struct bowler
+{
+    char bo_name[20];
+	int bo_age;
+	int wickets;
+	int h_speed;	
+};
+struct batsmen ba[max];
+struct bowler bo[max];
+int main()
+{
+	int opt,n1,n2,i,j;
+	printf("Select the option for which you want to enter the data\n");
+	printf("1:Batsmen\n2:Bowler\n");
+	scanf("%d",&opt);
+	switch(opt)
+	{
+		case 1:printf("How many batsmen's detaials do you want to enter\n");
+		scanf("%d",&n1);
+		for(i=0;i<n1;i++)
+		{
+		    printf("Enter the name of the batsmen\n");
+		    scanf("%s",&ba[i].ba_name);
+		    printf("Enter the age of the batsmen\n");
+		    scanf("%d",&ba[i].ba_age);
+		    printf("Enter the total number of runs of that batsmen\n");
+		    scanf("%d",&ba[i].runs);
+		    printf("Enter the strike rate of that batsemen\n");
+		    scanf("%f",&ba[i].strike_rate);
+		}
+			printf("\n\nThe details of the batsmen are:\n");
+        	printf("---------------------------------------------------------------------------\n");
+        	printf("NAME		AGE			RUNS		STRIKE RATE\n");
+        	printf("---------------------------------------------------------------------------\n");
+        	for(i=0;i<n1;i++)
+           	printf("%s		%d			%d		%.2f\n",ba[i].ba_name,ba[i].ba_age,ba[i].runs,ba[i].strike_rate);
+        	printf("----------------------------------------------------------------------------\n");
+	    break;
+	    case 2:printf("How many bowler's data do you want to enter\n");
+	    scanf("%d",&n2);
+	    for(j=0;j<n2;j++)
+	    {
+	    	printf("Enter the name of the bowler\n");
+	    	scanf("%s",bo[j].bo_name);
+	    	printf("Enter the age of the bowler\n");
+	    	scanf("%d",&bo[j].bo_age);
+	    	printf("Enter the total number of wickets of that bowler\n");
+	    	scanf("%d",&bo[j].wickets);
+	    	printf("Enter the highest speed of that bowler\n");
+	    	scanf("%d",&bo[j].h_speed);
+	    }
+	        printf("\n\nThe details of the bowlers are\n");
+	        printf("----------------------------------------------------------------------------\n");
+        	printf("NAME		AGE	    	WICKETS		HIGHEST SPEED\n");
+        	printf("----------------------------------------------------------------------------\n");
+        	for(j=0;j<n2;j++)
+        	{
+        	printf("%s		%d			%d		%d\n",bo[j].bo_name,bo[j].bo_age,bo[j].wickets,bo[j].h_speed);
+            }
+			printf("----------------------------------------------------------------------------\n");
+	    break;
+	}
+	return 0;
+}
